@@ -1,0 +1,55 @@
+.controls {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  user-select: none;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.select {
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid #d1d5db;
+  cursor: pointer;
+  background-color: white;
+  color: #374151;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added transition for box-shadow */
+  outline-offset: 2px;
+  flex: 1 1 150px; /* Allow the select to grow and shrink */
+  min-width: 120px; /* Minimum width for select */
+}
+
+.select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column; /* Stack controls vertically on smaller screens */
+    align-items: center; /* Center items */
+  }
+
+  .select {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 300px; /* Limit max width */
+  }
+}
+
+/* Screen reader only */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

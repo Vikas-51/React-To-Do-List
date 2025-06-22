@@ -1,0 +1,41 @@
+html, body {
+  height: 100%;
+  width: 100%; 
+  margin-top: 15px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  background: #f0f0f0; 
+}
+
+.welcomePage {
+  height: 80vh;
+  width: 70vw;
+  margin: 0 auto;  
+  min-width: 100px; 
+  background: linear-gradient(to bottom, #00c6ff, #0072ff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white; 
+  text-align: center;
+  border-radius: 20px; 
+  padding: 20px; 
+}
+
+
+.startButton {
+  background-color: #302d2d;
+  color: #0072ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}

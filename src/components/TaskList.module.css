@@ -1,0 +1,27 @@
+.list {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  user-select: none;
+}
+
+.noTasks {
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+  color: #9ca3af;
+  font-style: italic;
+  text-align: center;
+  user-select: none;
+}
+.list {
+  max-height: 200px; 
+  overflow-y: auto;
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+}

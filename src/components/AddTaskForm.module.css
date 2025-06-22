@@ -1,0 +1,130 @@
+.form {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  display: flex;
+  gap: 1rem;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+  perspective: 900px; /* Needed for 3D */
+}
+
+.input,
+.dateInput {
+  flex-grow: 1;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 0.75rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline-offset: 2px;
+  min-width: 150px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.input:focus,
+.dateInput:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
+}
+
+.button {
+  position: relative;
+  padding: 0 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  user-select: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border: none;
+  background-color: #fc5243;
+  color: white;
+  min-width: 75px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  transform-style: preserve-3d;
+  overflow: visible;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.button:hover:not(:disabled),
+.button:focus:not(:disabled) {
+  background-color: #84b0f8;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* FRONT and BACK faces for 3D flip */
+.front,
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.front {
+  z-index: 2;
+  color: white;
+  transform: rotateY(0deg);
+}
+
+.back {
+  font-size: 1.5rem; 
+  color: #faf623;
+  transform: rotateY(180deg);
+  z-index: 3;
+}
+
+/* Bootstrap icon style override for clear display */
+.bi-hand-thumbs-up-fill {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* 3D flip animation: flip out, hold, flip back */
+@keyframes flipMagic {
+  0% {
+    transform: rotateY(0deg) translateZ(0) scale(1);
+    opacity: 1;
+    z-index: 2;
+  }
+  40% {
+    transform: rotateY(180deg) translateZ(60px) scale(1.4);
+    opacity: 1;
+    z-index: 3;
+  }
+  80% {
+    transform: rotateY(180deg) translateZ(60px) scale(1.4);
+    opacity: 1;
+    z-index: 3;
+  }
+  100% {
+    transform: rotateY(360deg) translateZ(0) scale(1);
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+.animate3d {
+  animation: flipMagic 1.5s forwards;
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    0 8px 30px rgba(0, 0, 0, 0.2);
+  transform-origin: center center;
+  z-index: 10;
+}
